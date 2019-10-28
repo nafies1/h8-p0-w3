@@ -5,15 +5,36 @@ var input = [
                 ["0002", "Dika Sembiring", "Medan", "10/10/1992", "Bermain Gitar"],
                 ["0003", "Winona", "Ambon", "25/12/1965", "Memasak"],
                 ["0004", "Bintang Senjaya", "Martapura", "6/4/1970", "Berkebun"]
-            ]
+            ];
+
 
  function dataHandling(arr) {
+ 	var format1 = '';
  	for (var i = 0; i < arr.length; i++) {
- 		console.log(`Nomor ID : ${arr[i][0]}`); 
- 		console.log(`Nama Lengkap : ${arr[i][1]}`); 
- 		console.log(`TTL : ${arr[i][2]}, ${arr[i][3]}`); 
- 		console.log(`Hobi : ${arr[i][4]} \n \n` ); 
+ 		for (var j = 0; j < arr[i].length; j++) {
+ 			if (j === 0) {
+ 				format = `Nomor ID : ${arr[i][j]} \n`;
+ 			} else if (j === 1){
+ 				format = `Nama Lengkap : ${arr[i][j]} \n`;
+ 			} else if (j === 2){
+ 				format = `TTL : ${arr[i][j]}, `;
+ 			} else if (j === 3){
+ 				format = `${arr[i][j]} \n`;
+ 			} else if (j === 4){
+ 				format = `Hobi : ${arr[i][j]} \n`;
+ 			} else {
+ 				format = '';
+ 			}
+ 		
+ 			format1 += format ;
+ 		// console.log(`Nomor ID : ${arr[i][0]}`); 
+ 		// console.log(`Nama Lengkap : ${arr[i][1]}`); 
+ 		// console.log(`TTL : ${arr[i][2]}, ${arr[i][3]}`); 
+ 		// console.log(`Hobi : ${arr[i][4]} \n \n` ); 
+ 		}
+ 		format1 += '\n';
  	}
- }
+ 	return format1;
+}
 
-dataHandling(input);
+console.log(dataHandling(input));
